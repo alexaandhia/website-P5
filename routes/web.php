@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\P5Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,21 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/index', function () {
-    return view('user.index');
-});
+Route::get('/', [P5Controller::class, 'index'])->name('index');
+Route::get('/login', [P5Controller::class, 'login'])->name('login');
+Route::post('/auth', [P5Controller::class, 'auth'])->name('auth');
+
+Route::get('/admin', [P5Controller::class, 'admin'])->name('admin');
+Route::get('/user', [P5Controller::class, 'user'])->name('user');
+
 
 Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/login', function () {
-    return view('login.login');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -54,7 +54,7 @@ Free Bootstrap 5 HTML Template
 
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/">
                     <img src="assets/images/wikrama-logo.png" class="logo img-fluid" alt="">
 
                     <span class="ms-2">Kebugaran Jasmani</span>
