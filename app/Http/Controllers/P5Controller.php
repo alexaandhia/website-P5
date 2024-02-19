@@ -49,6 +49,11 @@ class P5Controller extends Controller
         return view('dashboard-user');
     }
 
+    public function logout(){
+        Auth::logout();
+        return redirect('/')->with('successLogout', 'Logout Succeed');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
