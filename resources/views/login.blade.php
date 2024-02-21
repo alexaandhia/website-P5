@@ -28,7 +28,6 @@
                 <div style="width: 100%; padding: 10px">
                     <ul class="alert alert-success" role="alert">{{ session('errorLogin') }}</ul>
                 </div>
-                <!-- bisa pake Session::get('successAdd') kalo pake :: itu class, jadi harus kapital awalnya-->
                 @endif
                 <form action="{{route('auth')}}" method="post">
                     @csrf

@@ -13,6 +13,6 @@
         </div>
         <!-- bisa pake Session::get('successAdd') kalo pake :: itu class, jadi harus kapital awalnya-->
         @endif
-<img src="{{asset('assets/img/gallery/error.jpg')}}" alt="" style="width: 800px; max-width: 100%;">
+<img src="{{asset('assets/images/error.jpg')}}" alt="" style="width: 800px; max-width: 100%;">
 </body>
 </html>
