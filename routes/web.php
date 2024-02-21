@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\P5Controller;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +18,32 @@ use App\Http\Controllers\P5Controller;
 //     return view('welcome');
 // });
 
-Route::get('/', [P5Controller::class, 'index'])->name('index');
-Route::get('/login', [P5Controller::class, 'login'])->name('login');
-Route::post('/auth', [P5Controller::class, 'auth'])->name('auth');
-Route::get('/logout', [P5Controller::class, 'logout'])->name('logout');
+// Route::get('/tes', function () {
+//     return view('form-admin');
+// });
 
-Route::get('/admin', [P5Controller::class, 'admin'])->name('admin');
-Route::get('/user', [P5Controller::class, 'user'])->name('user');
+Route::get('/', [AdminController::class, 'index'])->name('index');
+Route::get('/login', [AdminController::class, 'login'])->name('login');
+Route::post('/auth', [AdminController::class, 'auth'])->name('auth');
 
+Route::get('/error', [AdminController::class, 'error'])->name('error');
+
+Route::middleware(['isLogin', 'cekRole:admin'])->group(function(){
+    Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+    Route::get('/form', [AdminController::class, 'form'])->name('form');
+    Route::post('/add', [AdminController::class, 'store'])->name('add');
+
+});
+
+Route::middleware(['isLogin', 'cekRole:user'])->group(function(){
+    Route::get('/user', [AdminController::class, 'user'])->name('user');
+    Route::get('/user', [AdminController::class, 'user'])->name('user');
+
+});
+
+Route::middleware(['isLogin', 'cekRole:admin,user'])->group(function(){
+    Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
+});
 
 Route::get('/about', function () {
     return view('about');

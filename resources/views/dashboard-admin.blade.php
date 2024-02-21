@@ -41,7 +41,7 @@
                 </span>
                 <span class="hide-menu">Dashboard</span>
               </a>
-              <a class="sidebar-link" href="/admin" aria-expanded="false">
+              <a class="sidebar-link" href="/form" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
