@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,13 +33,19 @@ Route::middleware(['isLogin', 'cekRole:admin'])->group(function(){
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
     Route::get('/form', [AdminController::class, 'form'])->name('form');
     Route::post('/add', [AdminController::class, 'store'])->name('add');
-
+    Route::get('/detail', [AdminController::class, 'detail'])->name('detail');
+    Route::get('/make_account', [AdminController::class, 'make_account'])->name('make_account');
+    Route::post('/register', [AdminController::class, 'register'])->name('register');
+    Route::get('/accounts', [AdminController::class, 'accounts'])->name('accounts');
 });
 
 Route::middleware(['isLogin', 'cekRole:user'])->group(function(){
     Route::get('/user', [AdminController::class, 'user'])->name('user');
-    Route::get('/user', [AdminController::class, 'user'])->name('user');
-
+    Route::get('/imt', [AdminController::class, 'imt'])->name('imt');
+    Route::get('/explanation', [AdminController::class, 'explanation'])->name('explanation');
+    Route::get('/task', [AdminController::class, 'task'])->name('task');
+    Route::get('/lesson/{id}', [AdminController::class, 'show'])->name('lesson');
+    Route::post('/answer/{lesson_id}', [AdminController::class, 'answer'])->name('answer');
 });
 
 Route::middleware(['isLogin', 'cekRole:admin,user'])->group(function(){
