@@ -35,26 +35,22 @@
               <span class="hide-menu">User's</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/user" aria-expanded="false">
-                <span>
-                  <i class="ti ti-layout-dashboard"></i>
-                </span>
-                <span class="hide-menu">Dashboard</span>
-              </a>
-              <a class="sidebar-link" href="/user" aria-expanded="false">
-                <span>
-                  <i class="ti ti-layout-dashboard"></i>
-                </span>
-                <span class="hide-menu">Penugasan</span>
-              </a>
-              <a class="sidebar-link" href="/user" aria-expanded="false">
-              @foreach($tasks as $task)
-                <span class="hide-menu">Minggu ke-{{$task->minggu ?? '-'}}</span>
-                @endforeach
-              </a>
-              
-            </li>
-            <li class="nav-small-cap">
+                            <a class="sidebar-link" href="/explanation" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Kalkulator IMT</span>
+                            </a>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="/task" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Penugasan</span>
+                                </a>
+                            </li>
+                  
+            <!-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">UI COMPONENTS</span>
             </li>
@@ -149,7 +145,7 @@
                 <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
               </div>
             </div>
-          </div>
+          </div> -->
         </nav>
         <!-- End Sidebar navigation -->
       </div>

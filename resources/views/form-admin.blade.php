@@ -33,7 +33,7 @@
                     </div>
                     <div class="mb-3">
                       <label for="lkpd" class="form-label">LKPD</label>
-                      <input type="file" class="form-control" id="lkpd" name="lkpd" required>
+                      <input type="file" class="form-control" id="lkpd" name="lkpd" accept="pdf" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
