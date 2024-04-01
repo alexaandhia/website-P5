@@ -14,13 +14,13 @@
                           <h6 class="fw-semibold mb-0">NIS</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Nsma</h6>
+                          <h6 class="fw-semibold mb-0">Nama</h6>
                         </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Rombel</h6>
                         </th>
                         <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Password</h6>
+                          <h6 class="fw-semibold mb-0">Email</h6>
                         </th>
                         <th class="border-bottom-0">
                           <h6 class="fw-semibold mb-0">Keterangan</h6>
@@ -33,7 +33,7 @@
                             <td>{{$acc->nis}}</td>
                             <td>{{$acc->name}}</td>
                             <td>{{$acc->rombel}}</td>
-                            <td>{{$acc->password}}</td>
+                            <td>{{$acc->email}}</td>
                         </tr>
                         @endforeach
                     </tbody>
