@@ -75,7 +75,7 @@ class AdminController extends Controller
         ]);
 
         $validateData['role'] = 'user';
-        $validateData['password'] = $validateData['password'];
+        $validateData['password'] = bcrypt($validateData['password']);
 
         User::create($validateData);
 
@@ -103,7 +103,7 @@ class AdminController extends Controller
     {
         $lessons = Lesson::find($id);
         $tasks = Lesson::get();
-        return view('lesson', compact('lessons', 'tasks'));
+        return view('lesson2', compact('lessons', 'tasks'));
 
     }
 
@@ -119,19 +119,26 @@ class AdminController extends Controller
         return view('imt', compact('tasks'));
     }
 
-    public  function answer(Request $request, $lesson_id, $user_id)
-    {
-        $response = new Response();
-
-    // Isi data dari formulir ke dalam model Response
-    $response->user_id = $user_id;
-    $response->lesson_id = $lesson_id;
-    $response->kesimpulan = $request->kesimpulan;
-    $response->jawaban = $request->jawaban;
+    public function answer(Request $request, $lesson_id, $user_id)
+{
+    // Validasi data
+    $validatedData = $request->validate([
+        'kesimpulan' => 'required|string',
+        'jawaban' => 'required|string',
+    ]);
 
     // Simpan data ke dalam database
+    $response = new Response();
+    $response->lesson_id = $lesson_id;
+    $response->user_id = $user_id; // Pastikan menyimpan user_id
+    $response->kesimpulan = $validatedData['kesimpulan'];
+    $response->jawaban = $validatedData['jawaban'];
     $response->save();
-    }
+
+    // Respon berhasil dengan kode 200
+    return redirect('/task')->with('success', 'Pelajaran sudah terisi!');
+}
+
 
     public function logout(){
         Auth::logout();
