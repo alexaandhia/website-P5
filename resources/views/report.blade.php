@@ -38,7 +38,12 @@
                                 <td>{{$data->jawaban}}</td>
                                 <td>{{$data->kesimpulan}}</td>
                                 <td>
-                                    <a href="" class="btn btn-primary">Nilai</a>
+                                    {{-- @foreach($nilai as $n)
+                                    {{$n->nilai}}
+                                    @endforeach --}}
+                                </td>
+                                <td>
+                                    <a href="/nilai" class="btn btn-primary">Nilai</a>
                                 </td>
                             </tr>
                             @endforeach

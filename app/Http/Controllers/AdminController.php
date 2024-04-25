@@ -95,6 +95,18 @@ class AdminController extends Controller
         return view('report', compact('report'));
     }
 
+    public function nilai()
+    {
+        $answer = Answer::with(['user', 'lesson'])->paginate(5);
+        return view('nilai', compact('answer'));
+    }
+
+    public function store_nilai()
+    {
+        $answer = Answer::with(['user', 'lesson'])->paginate(5);
+        return view('nilai', compact('answer'));
+    }
+
     public function user()
     {
         $tasks = Lesson::get();

@@ -24,4 +24,9 @@ class Answer extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function grade()
+    {
+        return $this->hasOne(Lesson::class);
+    }
 }

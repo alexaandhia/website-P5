@@ -47,6 +47,8 @@ Route::middleware(['isLogin', 'cekRole:user'])->group(function(){
     Route::get('/task', [AdminController::class, 'task'])->name('task');
     Route::get('/lesson/{id}', [AdminController::class, 'show'])->name('lesson');
     Route::post('/answer/{lesson_id}/{user_id}', [AdminController::class, 'answer'])->name('answer');});
+    Route::get('/nilai', [AdminController::class, 'nilai'])->name('nilai');
+
 
 Route::middleware(['isLogin', 'cekRole:admin,user'])->group(function(){
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
@@ -55,6 +57,10 @@ Route::middleware(['isLogin', 'cekRole:admin,user'])->group(function(){
 Route::get('/about', function () {
     return view('about');
 });
+
+// Route::get('/nilai', function () {
+//     return view('nilai');
+// });
 
 
 Route::get('/dashboard', function () {
