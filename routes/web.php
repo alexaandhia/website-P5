@@ -37,6 +37,7 @@ Route::middleware(['isLogin', 'cekRole:admin'])->group(function(){
     Route::get('/make_account', [AdminController::class, 'make_account'])->name('make_account');
     Route::post('/register', [AdminController::class, 'register'])->name('register');
     Route::get('/accounts', [AdminController::class, 'accounts'])->name('accounts');
+    Route::get('/report', [AdminController::class, 'report'])->name('report');
 });
 
 Route::middleware(['isLogin', 'cekRole:user'])->group(function(){
@@ -45,8 +46,7 @@ Route::middleware(['isLogin', 'cekRole:user'])->group(function(){
     Route::get('/explanation', [AdminController::class, 'explanation'])->name('explanation');
     Route::get('/task', [AdminController::class, 'task'])->name('task');
     Route::get('/lesson/{id}', [AdminController::class, 'show'])->name('lesson');
-    Route::post('/answer/{lesson_id}', [AdminController::class, 'answer'])->name('answer');
-});
+    Route::post('/answer/{lesson_id}/{user_id}', [AdminController::class, 'answer'])->name('answer');});
 
 Route::middleware(['isLogin', 'cekRole:admin,user'])->group(function(){
     Route::get('/logout', [AdminController::class, 'logout'])->name('logout');

@@ -54,7 +54,7 @@
               <span class="hide-menu">PEMBELAJARAN</span>
             </li>
             <li class="sidebar-item">
-            <a class="sidebar-link" href="/admin" aria-expanded="false">
+            <a class="sidebar-link" href="/report" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>

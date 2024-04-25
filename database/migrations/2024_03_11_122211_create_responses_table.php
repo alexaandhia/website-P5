@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('responses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('lesson_id')->constrained()->onDelete('cascade');
-            $table->text('kesimpulan');
-            $table->text('jawaban');
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('lesson_id')->constrained()->onDelete('cascade');
+            // $table->text('kesimpulan');
+            // $table->text('jawaban');
             $table->timestamps();
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
         });
     }
 
