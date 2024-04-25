@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\User;
 use App\Models\Lesson;
 use App\Models\Response;
+use App\Models\Answer;
 use Illuminate\Http\Request;
 use illuminate\Support\Facades\Auth;
 
@@ -88,6 +89,12 @@ class AdminController extends Controller
         return view('accounts', compact('accounts'));
     }
 
+    public function report()
+    {
+        $report = Answer::with(['user', 'lesson'])->paginate(5);
+        return view('report', compact('report'));
+    }
+
     public function user()
     {
         $tasks = Lesson::get();
@@ -100,12 +107,13 @@ class AdminController extends Controller
     }
 
     public function show(Lesson $lesson, $id)
-    {
-        $lessons = Lesson::find($id);
-        $tasks = Lesson::get();
-        return view('lesson2', compact('lessons', 'tasks'));
-
-    }
+{
+    $lessons = Lesson::find($id);
+    $lesson_id = $lessons->id; // Extract lesson_id from $lessons
+    $user_id = Auth::id(); // Get the currently authenticated user's ID
+    $tasks = Lesson::get();
+    return view('lesson2', compact('lessons', 'tasks', 'lesson_id', 'user_id'));
+}
 
     public function explanation()
     {
@@ -121,14 +129,12 @@ class AdminController extends Controller
 
     public function answer(Request $request, $lesson_id, $user_id)
 {
-    // Validasi data
     $validatedData = $request->validate([
         'kesimpulan' => 'required|string',
         'jawaban' => 'required|string',
     ]);
 
-    // Simpan data ke dalam database
-    $response = new Response();
+    $response = new Answer();
     $response->lesson_id = $lesson_id;
     $response->user_id = $user_id; // Pastikan menyimpan user_id
     $response->kesimpulan = $validatedData['kesimpulan'];

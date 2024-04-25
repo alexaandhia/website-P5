@@ -50,37 +50,20 @@ iframe {
     <a href="../assets/materi/{{$lessons->lkpd}}" target="_blank">see lkpd full size</a>
     </div>
 
-    <form action="/answer/{{ $lessons->id }}" method="POST">
-        @csrf
-        <h2>Kesimpulan dan Jawaban</h2>
-        <div class="mb-3">
-            <label for="kesimpulan" class="form-label">Kesimpulan Materi</label>
-            <textarea class="form-control" name="kesimpulan" id="kesimpulan" style="height: 100px" placeholder="Masukkan kesimpulan dari materi ini"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="jawaban" class="form-label">Jawaban LKPD</label>
-            <textarea class="form-control" name="jawaban" id="jawaban" style="height: 300px" placeholder="Masukkan Jawaban LKPD"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
-    <!-- <form id="kesimpulanForm" action="/answer/{{ $lessons->id }}" method="POST">
+    <form action="{{ route('answer', ['lesson_id' => $lesson_id, 'user_id' => $user_id]) }}" method="POST">
     @csrf
-    <textarea name="kesimpulan" id="kesimpulan" cols="40" rows="10" placeholder="Masukkan Kesimpulan"></textarea>
-    <textarea name="jawaban" id="jawaban" cols="40" rows="10" placeholder="Masukkan Jawaban"></textarea>
+    <h2>Kesimpulan dan Jawaban</h2>
+    <div class="mb-3">
+        <label for="kesimpulan" class="form-label">Kesimpulan Materi</label>
+        <textarea class="form-control" name="kesimpulan" id="kesimpulan" style="height: 100px" placeholder="Masukkan kesimpulan dari materi ini"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="jawaban" class="form-label">Jawaban LKPD</label>
+        <textarea class="form-control" name="jawaban" id="jawaban" style="height: 300px" placeholder="Masukkan Jawaban LKPD"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
 
-    <button id="submitButton" type="button" class="btn btn-outline-primary">Submit</button>
-    </form> -->
-    <!-- <div id="successMessage" style="display:none">
-        <p style="padding-left: 50px;">Congratulations! You have successfully completed the video.</p>
-        <iframe src="../assets/lkpd/{{$lessons->lkpd}}" title="materi" class="p-3"></iframe>
-
-        <form action="/answer/{{ $lessons->id }}" method="POST">
-            @csrf
-        <textarea name="jawaban" id="jawaban" cols="40" rows="10" placeholder="Masukkan Jawaban"></textarea>
-        <button id="" type="submit" class="btn btn-outline-primary">Submit</button>
-        </form>
-    </div> -->
 </div>
 
 <!-- <script>

@@ -3,6 +3,11 @@
 
 <div class="container-fluid">
 <div class="col-sm-6 col-xl-3">
+@if (Session('success'))
+        <div style="width: 100%; padding: 10px">
+        <ul class="alert alert-success" role="alert">{{ session('success') }}</ul>
+        </div>
+        @endif
 @foreach($tasks as $task)
             <div class="card overflow-hidden rounded-2" >
               <div class="position-relative">
