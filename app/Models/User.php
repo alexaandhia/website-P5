@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->hasMany(Answer::class);
     }
 
+    public function grade()
+    {
+        return $this->hasMany(Grade::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -44,10 +44,10 @@ iframe {
         @else
             <iframe src="../assets/materi/{{$lessons->materi}}" title="materi" class="p-3" width="400px" height="300px"></iframe>
         @endif
-        <a href="../assets/materi/{{$lessons->materi}}" target="_blank">see materi full size</a>
+        <a href="../assets/materi/{{$lessons->materi}}"   >see materi full size</a>
     </div>
     <iframe src="../assets/lkpd/{{$lessons->lkpd}}" title="materi" class="p-3"></iframe>
-    <a href="../assets/materi/{{$lessons->lkpd}}" target="_blank">see lkpd full size</a>
+    <a href="../assets/materi/{{$lessons->lkpd}}"  >see lkpd full size</a>
     </div>
 
     <form action="{{ route('answer', ['lesson_id' => $lesson_id, 'user_id' => $user_id]) }}" method="POST">

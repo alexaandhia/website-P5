@@ -14,8 +14,8 @@
 } */
 
 .card {
-    margin-left: 500px;
-    margin-top: 90px;
+    margin-left: 200px;
+    margin-top: 60px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

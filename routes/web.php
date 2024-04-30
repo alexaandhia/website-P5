@@ -32,12 +32,21 @@ Route::get('/error', [AdminController::class, 'error'])->name('error');
 Route::middleware(['isLogin', 'cekRole:admin'])->group(function(){
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
     Route::get('/form', [AdminController::class, 'form'])->name('form');
-    Route::post('/add', [AdminController::class, 'store'])->name('add');
-    Route::get('/detail', [AdminController::class, 'detail'])->name('detail');
-    Route::get('/make_account', [AdminController::class, 'make_account'])->name('make_account');
-    Route::post('/register', [AdminController::class, 'register'])->name('register');
-    Route::get('/accounts', [AdminController::class, 'accounts'])->name('accounts');
+    Route::post('/add', [AdminController::class, 'store'])->name('add'); //add lesson
+    Route::get('/detail', [AdminController::class, 'detail'])->name('detail'); //data materi
+    Route::put('/lesson/{id}', [AdminController::class, 'updateLesson'])->name('lesson.update'); //edit data lesson
+    Route::get('/lesson_edit/{id}/', [AdminController::class, 'editLesson'])->name('lesson.edit');
+    Route::delete('/lesson/delete/{id}', [AdminController::class, 'destroyLesson'])->name('lesson.destroy');
+    Route::get('/make_account', [AdminController::class, 'make_account'])->name('make_account'); //regis akun
+    Route::post('/register', [AdminController::class, 'register'])->name('register'); 
+    Route::get('/accounts', [AdminController::class, 'accounts'])->name('accounts'); //data akun
+    Route::get('/account_edit/{id}', [AdminController::class, 'editAccount'])->name('edit.account'); //edit akun
+    Route::put('/account/{id}', [AdminController::class, 'updateAccount'])->name('update.account');
+    Route::delete('/account/{id}', [AdminController::class, 'destroyAccount'])->name('delete.account'); //delete akun
     Route::get('/report', [AdminController::class, 'report'])->name('report');
+    Route::get('/report_detail/{id}', [AdminController::class, 'report_detail'])->name('report.detail');
+    Route::get('/nilai/{id}', [AdminController::class, 'nilai'])->name('nilai');
+    Route::post('/store-nilai/{lesson_id}/{user_id}', [AdminController::class, 'store_nilai'])->name('store-nilai');
 });
 
 Route::middleware(['isLogin', 'cekRole:user'])->group(function(){
@@ -46,8 +55,9 @@ Route::middleware(['isLogin', 'cekRole:user'])->group(function(){
     Route::get('/explanation', [AdminController::class, 'explanation'])->name('explanation');
     Route::get('/task', [AdminController::class, 'task'])->name('task');
     Route::get('/lesson/{id}', [AdminController::class, 'show'])->name('lesson');
-    Route::post('/answer/{lesson_id}/{user_id}', [AdminController::class, 'answer'])->name('answer');});
-    Route::get('/nilai', [AdminController::class, 'nilai'])->name('nilai');
+    Route::post('/answer/{lesson_id}/{user_id}', [AdminController::class, 'answer'])->name('answer');
+    // Route::post('/store/{answer_id}/{user_id}', [AdminController::class, 'store_nilai'])->name('store-nilai');
+});
 
 
 Route::middleware(['isLogin', 'cekRole:admin,user'])->group(function(){

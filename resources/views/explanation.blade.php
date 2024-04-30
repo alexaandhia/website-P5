@@ -41,7 +41,7 @@
       width: 100%;
       height: auto;
       margin-top: 30px;
-      padding-left: 150px;
+      padding-left: 80px;
       border-radius: 8px;
     }
 

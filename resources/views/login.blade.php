@@ -18,14 +18,14 @@
             <div class="login-form">
                 <h2>Login</h2>
                 @if ($errors->any)
-                <ul style="width: 100%; padding: 10px">
+                <ul style="width: 100%;">
                     @foreach ($errors->all() as $error)
                     <li>{{$error}}</li>
                     @endforeach
                 </ul>
                 @endif
                 @if (Session('errorLogin'))
-                <div style="width: 100%; padding: 10px">
+                <div style="width: 100%;">
                     <ul class="alert alert-success" role="alert">{{ session('errorLogin') }}</ul>
                 </div>
                 @endif

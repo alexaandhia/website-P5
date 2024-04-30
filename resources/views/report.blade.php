@@ -6,24 +6,34 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title fw-semibold mb-4">Laporan Nilai Siswa</h5>
+                @if (Session('success'))
+                <div style="width: 100%; padding: 10px">
+                    <ul class="alert alert-success" role="alert">{{ session('success') }}</ul>
+                </div>
+                @endif
+                @if (Session('back'))
+                <div style="width: 100%; padding: 10px">
+                    <ul class="alert alert-danger" role="alert">{{ session('back') }}</ul>
+                </div>
+                @endif
+                <div class="mb-3">
+                    <form action="" method="GET">
+                        <input type="text" name="search" placeholder="Cari Nis" class="form-control" maxlength="20">
+                        <button type="submit" class="btn btn-primary mt-2">Cari</button>
+                    </form>
+                </div>
                 <div class="table-responsive">
                     <table class="table text-nowrap mb-0 align-middle">
                         <thead class="text-dark fs-4">
                             <tr>
                                 <th class="border-bottom-0">
-                                    <h6 class="fw-semibold mb-0">Minggu</h6>
-                                </th>
-                                <th class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0">NIS</h6>
                                 </th>
                                 <th class="border-bottom-0">
-                                    <h6 class="fw-semibold mb-0">Kesimpulan</h6>
+                                    <h6 class="fw-semibold mb-0">Nama</h6>
                                 </th>
                                 <th class="border-bottom-0">
-                                    <h6 class="fw-semibold mb-0">Jawaban</h6>
-                                </th>
-                                <th class="border-bottom-0">
-                                    <h6 class="fw-semibold mb-0">Nilai</h6>
+                                    <h6 class="fw-semibold mb-0">Rombel</h6>
                                 </th>
                                 <th class="border-bottom-0">
                                     <h6 class="fw-semibold mb-0">Keterangan</h6>
@@ -31,19 +41,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($report as $data)
+                            @foreach($user as $data)
                             <tr>
-                                <td>{{$data->lesson->minggu}}</td>
-                                <td>{{$data->user->nis}}</td>
-                                <td>{{$data->jawaban}}</td>
-                                <td>{{$data->kesimpulan}}</td>
+                                <td>{{$data->nis}}</td>
+                                <td>{{$data->name}}</td>
+                                <td>{{$data->rombel}}</td>
                                 <td>
-                                    {{-- @foreach($nilai as $n)
-                                    {{$n->nilai}}
-                                    @endforeach --}}
-                                </td>
-                                <td>
-                                    <a href="/nilai" class="btn btn-primary">Nilai</a>
+                                <a href="/report_detail/{{$data->id}}" class="btn btn-primary">Detail</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -54,29 +58,4 @@
         </div>
     </div>
 </div>
-
-<!-- Modal -->
-<!-- @foreach($report as $data)
-<div class="modal fade" id="modal{{$data->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <input type="number" name="nilai" placeholder="Masukkan nilai">
-                    <button>Simpan Nilai</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Understood</button>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach -->
-
 @endsection

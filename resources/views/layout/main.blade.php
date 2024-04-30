@@ -20,7 +20,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="/admin" class="text-nowrap logo-img">
-            <img src="assets/images/wikrama-logo.png" width="100" alt="" />
+            <img src="assets/images/wikrama-logo.png" style="width: 50px;" alt="" />
             <span><h4 class="">Kebugaran Jasmani</h4></span>
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">

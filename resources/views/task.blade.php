@@ -2,23 +2,24 @@
 @section('content')
 
 <div class="container-fluid">
-<div class="col-sm-6 col-xl-3">
-@if (Session('success'))
-        <div style="width: 100%; padding: 10px">
-        <ul class="alert alert-success" role="alert">{{ session('success') }}</ul>
-        </div>
-        @endif
-@foreach($tasks as $task)
-            <div class="card overflow-hidden rounded-2" >
-              <div class="position-relative">
-                <a href="/lesson/{{$task->id}}"><img src="../assets/images/olr.jpg" class="card-img-top rounded-0" alt="..."></a>
-                <a href="/lesson/{{$task->id}}" class="bg-primary text-white d-inline-flex position-absolute bottom-0 end-0 mb-n3 me-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"></a>                      </div>
-              <div class="card-body pt-3 p-4">
-                <h6 class="fw-semibold fs-4">Minggu {{$task->minggu ?? '-'}}</h6>
-  
-              </div>
+    <div class="row"> <!-- Kelompokkan card ke dalam satu baris -->
+        @foreach($tasks as $task)
+        <div class="col-md-4"> <!-- Kolom dengan ukuran yang sesuai -->
+            <div class="card mb-3 overflow-hidden rounded-2" style="max-width: 540px;"> <!-- Atur lebar maksimum card -->
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <a href="/lesson/{{$task->id}}"><img src="../assets/images/olr.jpg" class="img-fluid rounded-start" alt="..."></a>
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                            <h5 class="card-title">Minggu {{$task->minggu ?? '-'}}</h5>
+                                <a href="/lesson/{{$task->id}}" class="btn btn-primary">Isi Tugas</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            @endforeach
-          </div>
+        </div>
+        @endforeach
+    </div>
 </div>
 @endsection
